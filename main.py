@@ -53,7 +53,7 @@ def calculate_dividend_yield(stock):
     if sampleData[stock]["Type"] == "Common":
         return sampleData[stock]["Last Div"]/sampleData[stock]["Price"]
     else:
-        return sampleData[stock]["Fixed Div"]*sampleData[stock]["Par"]/sampleData[stock]["Price"]
+        return sampleData[stock]["Fixed Div"]*sampleData[stock]["Par"]/100/sampleData[stock]["Price"]
 
 def calculate_PE_ratio(stock):
     if not stock in sampleData:
@@ -74,7 +74,6 @@ def calculate_stock_price(stock):
         return 0
     return (t["Price"] * t["Quantity"]).sum()/(t["Quantity"].sum())
 
-
 def calculate_gbce():
     if len(sampleData) == 0:
         return 0
@@ -82,7 +81,6 @@ def calculate_gbce():
     for k,v in sampleData.items():
         product*=v["Price"]
     return product**(1/len(sampleData))
-
 
 def record_trade(stock,quantity,bs):
     if not stock in sampleData:
