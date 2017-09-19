@@ -157,6 +157,7 @@ def print_menu():
     print("price stock - displays the calculated stock price for stock")
     print("gbce - displays the GBCE Index over all stocks")
     print("q - quits the program")
+    print("for example, div TEA would output the dividend for the TEA stock")
 
 change_prices()
 
