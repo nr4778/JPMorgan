@@ -66,9 +66,9 @@ def calculate_stock_price(stock):
     if len(trades) != 0:
         print(trades)
     print()
-    if not stock in trades["Stock"].values:
-        return None
     now = datetime.datetime.now()
+    if not stock in trades[now-datetime.timedelta(minutes=15):now]["Stock"].values:
+        return None
     t = trades[now-datetime.timedelta(minutes=15):now].groupby("Stock").get_group(stock)
     if len(t) == 0:
         return 0
